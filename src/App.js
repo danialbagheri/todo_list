@@ -3,18 +3,24 @@ import React from "react";
 import "./App.css";
 
 import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
-import VisibilityFilters from "./components/VisibilityFilters";
-
+import List from "./pages/list";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Header from "./components/Header";
 class App extends React.Component {
   render() {
     return (
-      <div className="todo-app">
-        <h1>Todo List</h1>
-        <AddTodo />
-        <TodoList />
-        <VisibilityFilters />
-      </div>
+      <BrowserRouter>
+        <div>
+          <div className="todo-app">
+            <Header />
+          </div>
+          <Switch>
+            <Route path="/" component={List} exact />
+            <Route path="/add-todo" component={AddTodo} />
+            <Route component={Error} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

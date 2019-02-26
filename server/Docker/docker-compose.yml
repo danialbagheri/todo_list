@@ -1,0 +1,25 @@
+version: "3"
+services:
+  todo:
+    build: .
+    volumes:
+      - ../.:/code
+    # command: python /code/app/app.py
+    ports:
+      - "8082:8082"
+    links:
+      - todo-db
+    # hostname: tododb
+    depends_on:
+      - todo-db
+  todo-db:
+    hostname: mysqlserver
+    image: orchardup/mysql
+    ports:
+      - 3307:3307
+    environment:
+      MYSQL_ROOT_PASSWORD: p@ssw0rd123
+      MYSQL_DATABASE: todoapp
+# networks:
+#   todo-api:
+#     driver: "bridge"
