@@ -9,12 +9,13 @@ services:
       - "8082:8082"
     links:
       - todo-db
-    # hostname: tododb
     depends_on:
       - todo-db
   todo-db:
-    hostname: mysqlserver
-    image: orchardup/mysql
+    image: mysql:5.7.20
+    volumes:
+      - ./init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
     ports:
       - 3307:3307
     environment:

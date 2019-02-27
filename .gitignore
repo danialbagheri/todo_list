@@ -10,8 +10,10 @@
 
 # production
 /build
-server/venv
+server/flask/venv
+server/django/.venv
 *venv*
+*.venv*
 # misc
 .DS_Store
 .env.local
@@ -22,3 +24,4 @@ server/venv
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.pyc

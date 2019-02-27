@@ -20,6 +20,11 @@ class Header extends React.Component {
                 ADD
               </NavLink>
             </li>
+            <li>
+              <NavLink exact className="nav-link" to="/create-user">
+                Create user
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

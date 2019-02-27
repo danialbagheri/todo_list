@@ -5,4 +5,6 @@ WORKDIR /code
 EXPOSE 8082
 COPY requirements.txt /tmp
 RUN pip3 install -r /tmp/requirements.txt
-CMD ["python3", "/code/app/app.py"]
+# CMD ["python3","/code/app/app.py"]
+COPY commands.sh /tmp
+CMD ["sh","/tmp/commands.sh"]
