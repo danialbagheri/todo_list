@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../redux/actions";
+import { addTodo } from "../redux/actions/addTodo";
 
 class AddTodo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { requested_by: "", input: "" };
+    this.state = { project_number: "" };
     this.updateInput = this.updateInput.bind(this);
   }
 
@@ -15,23 +15,17 @@ class AddTodo extends React.Component {
 
   handleAddTodo = () => {
     this.props.addTodo(this.state);
-    this.setState({ input: "", requested_by: "" });
+    this.setState({ project_number: "" });
   };
 
   render() {
     return (
       <div>
-        <label>Requested by: </label>
+        <label>Project Number: </label>
         <input
           onChange={e => this.updateInput(e)}
-          value={this.state.requested_by}
-          name="requested_by"
-        />
-        <label>Job: </label>
-        <input
-          onChange={e => this.updateInput(e)}
-          value={this.state.input}
-          name="input"
+          value={this.state.project_number}
+          name="project_number"
         />
         <button className="add-todo" onClick={this.handleAddTodo}>
           Add Todo

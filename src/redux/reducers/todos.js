@@ -1,42 +1,24 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actionTypes";
+import { ADD_TODO } from "../actionTypes";
 
-const initialState = {
-  allIds: [],
-  byIds: {}
+const todoState = {
+  // allIds: [],
+  // byIds: {},
+  todo: [],
+  error: null
 };
 
-export default function(state = initialState, action) {
+export default function(state = todoState, action) {
   switch (action.type) {
-    case ADD_TODO: {
-      const { id, requested_by, input } = action.payload;
-      console.log(requested_by);
+    case ADD_TODO:
+      console.log("todo-added");
       return {
         ...state,
-        allIds: [...state.allIds, id],
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            requested_by,
-            input,
-            completed: false
-          }
-        }
+        loading: false,
+        error: null,
+        todo: [...state.todo, action.payload]
       };
-    }
-    case TOGGLE_TODO: {
-      const { id } = action.payload;
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [id]: {
-            ...state.byIds[id],
-            completed: !state.byIds[id].completed
-          }
-        }
-      };
-    }
     default:
       return state;
   }
 }
+console.log(todoState);
