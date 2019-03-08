@@ -1,5 +1,5 @@
 import TodoList from "../components/TodoList";
-import VisibilityFilters from "../components/VisibilityFilters";
+
 import React from "react";
 
 class List extends React.Component {
@@ -7,7 +7,6 @@ class List extends React.Component {
     return (
       <div>
         <TodoList />
-        <VisibilityFilters />
       </div>
     );
   }

@@ -21,7 +21,14 @@ class AddTodo extends React.Component {
   render() {
     return (
       <div>
+        <div>Requested by:</div>
         <label>Project Number: </label>
+        <input
+          onChange={e => this.updateInput(e)}
+          value={this.state.project_number}
+          name="project_number"
+        />
+        <label>Required Date: </label>
         <input
           onChange={e => this.updateInput(e)}
           value={this.state.project_number}
